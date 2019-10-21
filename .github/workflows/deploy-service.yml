@@ -1,0 +1,15 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: docker://gcr.io/triggermesh/tm:latest
+    - name: Deploy Services
+      run: |
+        echo $TM_CONFIG > /tmp/config.json
+        tm deploy --config=/tmp/config.json
