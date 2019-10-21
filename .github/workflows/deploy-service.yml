@@ -4,12 +4,15 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
+    container:
+      image:  /gcr.io/triggermesh/tm:latest
     
     steps:
-    - uses: docker://gcr.io/triggermesh/tm:latest
+    - uses: actions/checkout@master
+      env:
+        tm_config: ${{ secrets.TM_CONFIG }}
     - name: Deploy Services
       run: |
-        echo $TM_CONFIG > /tmp/config.json
+        echo ${tm_config} > /tmp/config.json
         /usr/bin/tm deploy --config=/tmp/config.json
