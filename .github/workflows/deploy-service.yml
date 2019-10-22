@@ -1,4 +1,4 @@
-name: CI
+name: Deploy Service
 
 on: [push]
 
@@ -10,11 +10,12 @@ jobs:
     
     steps:
     - uses: actions/checkout@master
-    - name: Deploy Services
+    - name: Setup Configuration
       env:
-        TM_CONFIG: ${{ secrets.TM_CONFIG}}
+        TM_CONFIG: ${{ secrets.TM_CONFIG }}
       run: |
-        echo "${TM_CONFIG}" > /tmp/config.json
+        mkdir $HOME/.tm
+        echo "${TM_CONFIG}" > $HOME/.tm/config.json
     - name: Use tm-cli to deploy
       run: |
-        /usr/bin/tm --config=/tmp/config.json deploy
+        /usr/bin/tm deploy
