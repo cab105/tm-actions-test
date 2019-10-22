@@ -14,7 +14,7 @@ jobs:
       env:
         TM_CONFIG: ${{ secrets.TM_CONFIG}}
       run: |
-        echo "${secrets.TM_CONFIG}" > /tmp/config.json
+        echo "${TM_CONFIG}" > /tmp/config.json
     - name: Verify config is written
       run: |
         cat /tmp/config.json
