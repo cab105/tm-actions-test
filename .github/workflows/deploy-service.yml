@@ -10,9 +10,7 @@ jobs:
     
     steps:
     - uses: actions/checkout@master
-      env:
-        tm_config: ${{ secrets.TM_CONFIG }}
     - name: Deploy Services
       run: |
-        echo ${tm_config} > /tmp/config.json
+        echo ${{ secrets.TM_CONFIG }} > /tmp/config.json
         /usr/bin/tm --config=/tmp/config.json deploy
