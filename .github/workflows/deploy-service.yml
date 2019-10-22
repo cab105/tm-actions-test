@@ -14,5 +14,9 @@ jobs:
       env:
         TM_CONFIG: ${{ secrets.TM_CONFIG}}
       run: |
-        echo '${{ TM_CONFIG }}' > /tmp/config.json
-        /usr/bin/tm --config=/tmp/config.json deploy
+        echo "${TM_CONFIG}" > /tmp/config.json
+    -name: Verify config is written
+      run: |
+        cat /tmp/config.json
+
+#        /usr/bin/tm --config=/tmp/config.json deploy
