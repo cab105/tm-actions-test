@@ -15,4 +15,4 @@ jobs:
     - name: Deploy Services
       run: |
         echo ${tm_config} > /tmp/config.json
-        /usr/bin/tm deploy --config=/tmp/config.json
+        /usr/bin/tm --config=/tmp/config.json deploy
