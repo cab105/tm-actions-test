@@ -1,5 +1,7 @@
 import sys
-import sample
+
+def handle(req):
+    print("Hello: " + req)
 
 def get_stdin():
     buf = ""
@@ -9,6 +11,6 @@ def get_stdin():
 
 if __name__ == "__main__":
     st = get_stdin()
-    ret = sample.handle(st)
+    ret = handle(st)
     if ret != None:
         print(ret)
