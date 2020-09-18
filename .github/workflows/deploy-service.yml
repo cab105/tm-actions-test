@@ -18,4 +18,4 @@ jobs:
         echo "${TM_CONFIG}" > $HOME/.tm/config.json
     - name: Use tm-cli to deploy
       run: |
-        /usr/bin/tm deploy --wait
+        /bin/tm deploy --wait
