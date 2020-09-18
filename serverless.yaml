@@ -11,4 +11,3 @@ functions:
     runtime: https://raw.githubusercontent.com/triggermesh/openfaas-runtime/master/python2.7/openfaas-python2.7-runtime.yaml
     buildargs:
       - HANDLER=index.py
-      - DIRECTORY=actiontest
